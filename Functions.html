@@ -10,5 +10,16 @@
         return result;
     }
 
-    alert(pow(4, 3));
+    //alert(pow(4, 3));
+
+    function ask(question, yes, no)
+    {
+        if(confirm(question)) yes();
+        else no();
+    }
+
+    ask("Are you sure?",
+        function() { alert("Yes"); },
+        function() { alert("No"); }
+    );
 </script>
