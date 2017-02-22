@@ -1,0 +1,39 @@
+<script>
+    //alert( isNaN(null) );
+    //alert( isNaN("\n  \n") );
+    //alert(!isNaN(parseFloat('12px')));
+    //alert(isFinite('12px'));
+
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+    // alert('null is ' + isNumeric(null) + '\n' +
+    //     'true is ' + isNumeric(true) + '\n' +
+    //     '\'true\' is ' + isNumeric('true') + '\n' +
+    //     'empty string is ' + isNumeric('') + '\n' +
+    //     '12px is ' + isNumeric('12px') + '\n' +
+    //     'a58 is ' + isNumeric('a58') + '\n' +
+    //     '12.34 is ' + isNumeric(12.34) + '\n');
+
+    function sum(a, b)
+    {
+        return a + b;
+    }
+
+    // var a = prompt("a = ", "");
+    // var b = prompt("b = ", "");
+    // if(!isNumeric(a)) alert("a is not numeric");
+    // if(!isNumeric(b)) alert("b is not numeric");
+    // alert("sum = " + sum(+a, +b));
+
+    function getDecimal(num){
+        return Math.abs((num - ~~num).toFixed(10));
+    }
+    //alert(getDecimal(-1.2));
+
+    function getRandom(min, max){
+        return min + Math.random() * (max - min);
+    }
+    //alert(getRandom(10000, 10000.01));
+
+</script>
