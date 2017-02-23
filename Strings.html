@@ -1,0 +1,16 @@
+<script>
+    function ucFirst(str){
+        return str.charAt(0).toUpperCase() + str.substring(1);
+    }
+    //alert(ucFirst(""));
+
+    function checkSpam(str){
+        return !!(~str.toLowerCase().indexOf("xxx") || ~str.toLowerCase().indexOf("viagra"));
+    }
+    //alert(checkSpam("innocent rabbit"));
+
+    function truncate(str, maxlength){
+        return str.length > maxlength ? str.substr(0, maxlength - 3) + "..." : str;
+    }
+    //alert(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));
+</script>
