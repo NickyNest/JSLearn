@@ -1,0 +1,75 @@
+<script>
+    var user = {};
+    user.name = "Vasja";
+    var surnameKey = "surname";
+    user[surnameKey] = "Petrov";
+    user.name = "Vas!";
+    delete user.name;
+    // alert('name' in user);
+    // alert(surnameKey in user);
+    // alert(user.name === undefined);
+
+    function isEmpty(obj){
+        for(var key in obj){
+           return false;
+        }
+        return true;
+    }
+    var schedule = {};
+    //alert( isEmpty(schedule) );
+    schedule["8:30"] = "подъём";
+    //alert( isEmpty(schedule) );
+
+    var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 250
+    };
+    function sumSalaries(obj){
+        var sum = 0;
+        for(var key in obj){
+            sum += obj[key];
+        }
+        return sum;
+    }
+    //alert(sumSalaries(salaries));
+    //alert(sumSalaries({}));
+
+    function mostPaied(obj){
+        var name = "нет сотрудников";
+        var salary = 0;
+        for(var key in obj){
+            if(obj[key] > salary){
+                name = key;
+                salary = obj[key];
+            }
+        }
+        return name;
+    }
+    //alert(mostPaied(salaries));
+    //alert(mostPaied({}));
+
+    var menu = {
+        width: 200,
+        height: 300,
+        title: "My menu"
+    };
+    function multiplyNumeric(obj){
+        for(var key in obj){
+            if(isNumeric(obj[key])){
+                obj[key] *= 2; 
+            }
+        }
+        return obj;
+    }
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n)
+    }
+    var newMenu = multiplyNumeric(menu);
+    var str = "";
+    for(var key in newMenu){
+        str += "menu[" + key + "] = " + newMenu[key] + "\n";
+    }
+    alert(str);
+
+</script>
