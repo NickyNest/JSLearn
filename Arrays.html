@@ -1,5 +1,23 @@
 <script>
     var goods = ["good1", "good2"];
     goods[goods.length] = "good3";
-    alert(goods);
+    //alert(goods);
+
+    var styles = ["Джаз", "Блюз"];
+    styles[styles.length] = "Рок-н-Ролл";
+    var changePenultimate = function(arr, elememnt){
+        arr[arr.length - 2] = elememnt;
+    };
+    changePenultimate(styles, "Классика");
+    styles.shift()
+    styles.unshift("Рэп", "Регги");
+    //alert(styles);
+
+    var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+    var random = function(min, max){
+         return min + Math.floor(Math.random() * (max + 1 - min));
+    };
+    var index = random(0, arr.length - 1);
+    alert(index + " " + arr[index]);
+
 </script>
