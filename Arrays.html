@@ -18,6 +18,43 @@
          return min + Math.floor(Math.random() * (max + 1 - min));
     };
     var index = random(0, arr.length - 1);
-    alert(index + " " + arr[index]);
+    //alert(index + " " + arr[index]);
+
+    // var numbers = [];
+    // while(true){
+    //     var number = prompt("Input the number", "0");
+    //     if(number === null || number === "" || isNaN(number)){
+    //         break;
+    //     }
+    //     numbers.push(+number); 
+    // }
+    // var sum = 0;
+    // for(var i = 0; i < numbers.length; i++){
+    //     sum += numbers[i];
+    // }
+    // alert("sum = " + sum);
+
+    var arr1 = ["test", 2, 1.5, false];
+    function find(arr, value){
+        for(var i = 0; i < arr.length; i++){
+            if(arr[i] === value){
+                return i;
+            }
+        }
+        return -1;
+    }
+    //alert(find(arr1, 2));
+
+    function filterRange(arr, a, b){
+        var newArr = [];
+         for(var i = 0; i < arr.length; i++){
+             if(arr[i] >= a && arr[i] <= b){
+                 newArr.push(arr[i]);
+             }
+         }
+         return newArr;
+    }
+    var arr2 = [5, 4, 3, 8, 0];
+    alert(filterRange(arr2, 3, 5));
 
 </script>
