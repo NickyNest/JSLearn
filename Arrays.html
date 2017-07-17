@@ -55,6 +55,36 @@
          return newArr;
     }
     var arr2 = [5, 4, 3, 8, 0];
-    alert(filterRange(arr2, 3, 5));
+    //alert(filterRange(arr2, 3, 5));
 
+    var obj = {
+        className: 'open mymenu'
+    }
+    function addClass(obj, cls){
+        var array = obj.className ? obj.className.split(' ') : [];
+        
+        if(array.indexOf(cls) == -1){
+            array.push(cls);
+            obj.className = array.join(' ');
+        }
+    }
+
+    addClass(obj, 'new');
+    addClass(obj, 'open');
+    addClass(obj, 'me');
+    addClass(obj, 'menu');
+    //alert(obj.className);
+
+    function camelize(str){
+        var arr = str.split('-');
+        for (var index = 1; index < arr.length; index++) {
+            arr[index] = arr[index].charAt(0).toUpperCase() + arr[index].substr(1);            
+        }
+
+        return arr.join('');
+    }
+    //alert(camelize('background-color'));
+    //alert(camelize('list-style-image'));
+    //alert(camelize('-webkit-transition'));
+    alert(camelize(''));
 </script>
