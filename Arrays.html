@@ -86,5 +86,111 @@
     //alert(camelize('background-color'));
     //alert(camelize('list-style-image'));
     //alert(camelize('-webkit-transition'));
-    alert(camelize(''));
+    //alert(camelize(''));
+
+     var obj1 = {
+        className: 'open my menu menu temp'
+    }
+    function removeClass(obj, cls){
+        var array = obj.className ? obj.className.split(' ') : [];
+        var index = array.indexOf(cls);
+
+        while(index != -1){
+            array.splice(index, 1);
+            index = array.indexOf(cls);
+        }
+
+        obj.className = array.join(' ');
+    }
+
+    removeClass(obj1, "open");
+    removeClass(obj1, "menu");
+    //alert(obj1.className);
+
+    var arrNumbers = [5, 3, 8, 1];
+    function filterRangeInPlace(arr, a, b){
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= a && arr[i] <= b) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+    }
+
+    filterRangeInPlace(arrNumbers, 1, 6)
+    //alert(arrNumbers);
+
+    var arrToSort = [5, 2, 1, -10, 8];
+    var sortedArr = arrToSort.sort(function(a, b) {
+       return b - a;
+    });
+   // alert(sortedArr);
+   
+   var arr1 = ["HTML", "JavaScript", "CSS"];
+   var arr2 = arr1.slice().sort();
+
+   //alert(arr1);
+   //alert(arr2);
+
+   var randSort = [1, 2, 3, 4, 5];
+   function fn(a, b){
+       return Math.floor(Math.random() * 2);
+   }
+
+   //alert(randSort.sort(fn));
+   
+   var vasya = { name: "Вася", age: 23 };
+   var masha = { name: "Маша", age: 18 };
+   var vovochka = { name: "Вовочка", age: 6 };
+   var people = [ vasya , masha , vovochka ];
+
+   function ageSort(person1, person2) {
+       return person1.age - person2.age;
+   }
+
+   var sortedNames = "";
+   people.sort(ageSort).forEach(function(item, i, arr) {
+       sortedNames += item.name + " ";
+   });
+   //alert(sortedNames);
+
+   var list = { value: 1 };
+   list.next = { value: 2 };
+   list.next.next = { value: 3 };
+   list.next.next.next = { value: 4 };
+
+   function printList(list){
+       while(list){
+           alert(list.value);
+           list = list.next;
+       }
+   }
+   function printListRec(list){
+       if(list){
+           alert(list.value);
+           printListRec(list.next);
+       }
+   }
+   function printReverseListRec(list){
+       if(list){
+           printReverseListRec(list.next);
+           alert(list.value);
+       }
+   }
+   function printReverseList(list){
+       var arr = [];
+       while(list){
+           arr.push(list.value);
+           list = list.next;
+       }
+       arr.reverse().forEach(function(item, i, arr) {
+           alert(item);
+       });
+   }
+
+   //printList(list);
+   //printListRec(list);
+   //printReverseListRec(list);
+   //printReverseList(list);
+
 </script>
