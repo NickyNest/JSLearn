@@ -193,4 +193,50 @@
    //printReverseListRec(list);
    //printReverseList(list);
 
+   var arrAnagramms = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+
+   function aclean(arr){
+        for (var i = 0; i < arr.length; i++) {
+            var mask = arr[i].toUpperCase().split('').sort().join('');
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[j].toUpperCase().split('').sort().join('') === mask) {
+                    arr.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+   }
+
+   function aclean1(arr){
+       var obj = {};
+       for (var i = 0; i < arr.length; i++) {
+           var sorted = arr[i].toLowerCase().split('').sort().join('');
+           obj[sorted] = arr[i];
+       }
+
+       var result = [];
+       for(var key in obj){
+           result.push(obj[key]);
+       }
+
+       return result;
+   }
+
+
+   aclean(arrAnagramms);
+   //alert(arrAnagramms);
+   //alert(aclean1(arrAnagramms));
+
+   var strings = ["кришна", "кришна", "харе", "харе",  "харе", "харе", "кришна", "кришна", "8-()"];
+
+   function unique(arr) {
+       var obj = {};
+       for (var i = 0; i < arr.length; i++) {
+           obj[arr[i]] = arr[i];
+       }
+
+       return Object.keys(obj);
+   }
+   //alert(unique(strings));
+
 </script>
