@@ -239,4 +239,24 @@
    }
    //alert(unique(strings));
 
+   var arrToMap = ["Есть", "жизнь", "на", "Марсе"];
+   var arrLength = arrToMap.map(function(item){
+       return item.length;
+   });
+   //alert(arrLength);
+
+   var arrToCalc = [1,2,3,4,5];
+   var arrToCalc1 = [-2,-1,0,1];
+   function getSums(arr){
+       var arrSum = [];
+       arrSum = arr.map(function(item, index){
+           return arr.slice(0, index + 1).reduce(function(sum, item){
+               return sum + item;
+           });
+       });
+
+       return arrSum;
+   }
+   alert(getSums(arrToCalc1));
+
 </script>
