@@ -1,0 +1,18 @@
+<script>
+   function f(x) {
+       alert( arguments.length ? 1 : 0 );
+} 
+
+//f();
+//f(undefined);
+
+function sum(){
+    var sum = 0;
+    for (var index = 0; index < arguments.length; index++) {
+        sum += arguments[index];
+    }
+    return sum;
+}
+
+//alert(sum(1,2,3,4));
+</script>
