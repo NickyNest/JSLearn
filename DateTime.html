@@ -1,0 +1,64 @@
+<script>
+    var d = new Date(2012, 1, 20, 3, 12);
+    //alert(d);
+
+    function getWeekDay(date){
+        var weekDay = date.getDay();
+        var weekDayStr;
+        switch (weekDay) {
+            case 0:
+                weekDayStr = "вс";
+                break;
+            case 1:
+                weekDayStr = "пн";
+                break;
+            case 2:
+                weekDayStr = "вт";
+                break;
+            case 3:
+                weekDayStr = "ср";
+                break;
+            case 4:
+                weekDayStr = "чт";
+                break;
+            case 5:
+                weekDayStr = "пт";
+                break;
+            case 6:
+                weekDayStr = "сб";
+                break;
+            default:
+                break;
+        }
+        return weekDayStr;
+    }
+
+    //alert(getWeekDay(new Date(2017, 07, 27)));
+    //alert(new Date(2017, 07, 27).toLocaleString("ru", {weekday: "short"}));
+
+    function getLocalDay(date) {
+        var days = [7, 1, 2, 3, 4, 5, 6];
+        return days[date.getDay()];
+    }
+    //alert(getLocalDay(new Date(2017, 07, 27)));
+
+    function getDateAgo(date, days) {
+        return new Date(date.setDate(date.getDate() - days)).toLocaleString("ru");
+    }
+    //alert(getDateAgo(new Date(2015, 0, 2), 1));
+    //alert(getDateAgo(new Date(2015, 0, 2), 2));
+
+    function getLastDayOfMonth(year, month) {
+        var date = new Date(year, month + 1);
+        date.setDate(date.getDate() - 1);
+        return date.getDate();
+    }
+    //alert(getLastDayOfMonth(2012, 1));
+
+    function getSecondsToTomorrow() {
+        var today = new Date();
+        var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+        return (tomorrow - today) / 1000;
+    }
+    alert(getSecondsToTomorrow());
+</script>
