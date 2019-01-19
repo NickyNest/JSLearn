@@ -1,0 +1,79 @@
+<script>
+    var user = {
+        name: 'NoName1',
+
+        sayHi: function () {
+            console.log(this.name);
+        },
+
+        showName: function () {
+            showName(this);
+        },
+
+        displayName: () => { console.log(this.user.name); } //??
+    };
+
+    function showName(obj) {
+        console.log(obj.name);
+    }
+
+    user.sayHi();
+    user.showName();
+    user.displayName();
+
+    let dev = { firstName: 'dev' };
+    let admin = { firstName: 'admin' };
+
+    function display() {
+        console.log(this.firstName);
+    }
+
+    dev.f = display;
+    admin.g = display;
+
+    dev.f(); // dev
+    admin.g(); // dev
+    admin['g'](); // admin
+
+    /*Создайте объект calculator*/
+    let calculator = {
+        a: 0,
+        b: 0,
+        default: function () {
+            this.a = 3;
+            this.b = 4;
+        },
+        read: function () {
+            this.a = prompt("a = ");
+            this.b = prompt("b = ");
+        },
+        sum: function () {
+            return +this.a + +this.b;
+        },
+        mul: function () {
+            return this.a * this.b;
+        }
+    };
+
+    calculator.default();
+    console.log(calculator.sum());
+    console.log(calculator.mul());
+
+    let ladder = {
+        step: 0,
+        up: function() { // вверх по лестнице
+            this.step++;
+            return this;
+        },
+        down: function() { // вниз по лестнице
+            this.step--;
+            return this;
+        },
+        showStep: function() { // вывести текущую ступеньку
+            console.log( this.step );
+            return this;
+        }
+    };
+
+    ladder.up().up().down().showStep();
+</script>
