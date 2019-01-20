@@ -1,0 +1,95 @@
+<script>
+    function BigAnimal() {
+        this.name = "Мышь";
+        return { name: "Годзилла" };  // <-- возвратим объект
+    }
+    console.log(new BigAnimal().name);  // Годзилла, получили объект вместо this
+
+    function BigAnimal2() {
+        this.name = "Мышь";
+        return "Годзилла";  // <-- возвратим примитив
+    }
+    console.log(new BigAnimal2().name);  // Мышь, получили this (а Годзилла пропал)
+
+    function User(firstName, lastName) {
+         // вспомогательная переменная
+        let phrase = "Привет";
+
+        //  вспомогательная вложенная функция
+        function getFullName() {
+            return firstName + " " + lastName;
+        }
+
+        this.sayHi = function () {
+            console.log(`${phrase}, ${getFullName()}`);
+        }
+    }
+
+    let mike = new User('Mike', 'Portnov');
+    mike.sayHi();
+
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt('a = ', 0);
+            this.b = +prompt('a = ', 0);
+        }
+
+        this.defaultRead = function () {
+            this.a = 5;
+            this.b = 9;
+        }
+
+        this.sum = function () {
+            return this.a + this.b;
+        }
+
+        this.mul = function () {
+            return this.a * this.b;
+        }
+    }
+
+    let calc = new Calculator();
+    calc.defaultRead();
+    console.log(calc.sum());
+    console.log(calc.mul());
+
+    function Accumulator(startValue) {
+        this.value = startValue;
+
+        this.read = function () {
+            this.value += +prompt('value = ', 0);
+        }
+    }
+
+    let accumulator = new Accumulator(1);
+    // accumulator.read();
+    // accumulator.read();
+    console.log(accumulator.value);
+
+    function PowerCalc() {
+        let operations = {
+            "+": (a, b) => a + b,
+            "-": (a, b) => a - b
+        };
+
+        this.calculate = function(expr) {
+            let splitExpt = expr.split(' ');
+            if(!operations[splitExpt[1]]) {
+                return Error("not exists");
+            }
+            return operations[splitExpt[1]](+splitExpt[0], +splitExpt[2]);
+        }
+
+        this.addMethod = function (operation, func) {
+            operations[operation] = func;
+        }
+    }
+
+    let powerCalc = new PowerCalc();
+    console.log(powerCalc.calculate("3 + 5"));
+    console.log(powerCalc.calculate("3 - 5"));
+    powerCalc.addMethod("*", (a, b) => a * b);
+    console.log(powerCalc.calculate("3 * 5"));
+    powerCalc.addMethod("/", (a, b) => a / b);
+    console.log(powerCalc.calculate("3 / 5"));
+</script>
