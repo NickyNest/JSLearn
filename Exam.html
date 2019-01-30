@@ -1,0 +1,58 @@
+<script>
+    // #1
+    // for (var i = 0; i < 5; i++) {
+    //     setTimeout(function() { console.log(i); }, i * 1000);
+    // } // раз в секунду выведеться 5 и так 5 раз
+
+    // #2
+    // console.log(1);
+    // setTimeout(function(){console.log(2)}, 0)
+    // setTimeout(function(){console.log(3)}, 1000)
+    // setTimeout(function(){console.log(4)})
+    // console.log(5);
+    // 1,5,2,4,3
+
+    // #3
+    // let a = 3;
+    // someFunc();
+    // function someFunc() {
+    //     if (false) {
+    //         let a = 1;
+    //     } else {
+    //         let b = 1;
+    //     }
+    //     console.log("b = " + b);
+    //     console.log("a = " + a);
+    //     console.log("c = " + c);
+    // }
+
+    // var a = 3;
+    // someFunc();
+    // function someFunc() {
+    //     if (false) {
+    //         var a = 1;
+    //     } else {
+    //         var b = 1;
+    //     }
+    //     console.log("b = " + b);
+    //     console.log("a = " + a);
+    //     console.log("c = " + c);
+    // }
+
+    // #4
+    // const a = {
+    //     b: 1
+    // };
+    // console.log(a.b);
+    // a.b = 1;
+    // console.log(a.b);
+    // a = 1;
+    // console.log(a);
+    var a = 1;
+    foo();
+    function foo() {
+       var a = 5;
+    }
+    console.log(a);
+    
+</script>
